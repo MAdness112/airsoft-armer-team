@@ -1,0 +1,6 @@
+'use client';
+import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+const links=[['HOME','/'],['ECHIPA','/team'],['JOCURI','/operations'],['GALERIE','/gallery'],['DESPRE NOI','/about'],['CONTACT','/contact']];
+export function Navbar(){const[open,setOpen]=useState(false);const[scrolled,setScrolled]=useState(false);useEffect(()=>{const onScroll=()=>setScrolled(window.scrollY>40);onScroll();window.addEventListener('scroll',onScroll,{passive:true});return()=>window.removeEventListener('scroll',onScroll)},[]);return <header className={`navbar ${scrolled?'scrolled':''}`}><Link href="/" className="brand" aria-label="Airsoft Armer Team — Acasă"><span>AAT</span><small>AIRSOFT<br/>ARMER TEAM</small></Link><nav aria-label="Navigație principală">{links.map(([label,href])=><Link key={href} href={href}>{label}</Link>)}</nav><div className="nav-status"><span/> AAT ONLINE</div><button className="menu-trigger" onClick={()=>setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu">{open?<X/>:<Menu/>}<span>MENU</span></button><div id="mobile-menu" className={`mobile-menu ${open?'open':''}`}><p>AAT // NAVIGATION</p>{links.map(([label,href],i)=><Link key={href} href={href} onClick={()=>setOpen(false)}><span>0{i+1}</span>{label}</Link>)}<small>FUNDU MOLDOVEI // ROMANIA</small></div></header>}

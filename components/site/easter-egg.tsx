@@ -1,0 +1,2 @@
+'use client';import{useEffect,useState}from'react';
+export function EasterEgg(){const[show,setShow]=useState(false);useEffect(()=>{let keys='';const onKey=(e:KeyboardEvent)=>{keys=(keys+e.key.toLowerCase()).slice(-3);if(keys==='aat'){setShow(true);window.setTimeout(()=>setShow(false),1100)}};window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey)},[]);return show?<output className="easter"><b>IDENTITY VERIFIED</b><span>WELCOME TO THE TEAM.</span></output>:null}

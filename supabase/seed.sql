@@ -1,0 +1,9 @@
+-- DEMO SEED ONLY. Every inserted record has is_demo=true and can be removed with:
+-- delete from public.members where is_demo; delete from public.operations where is_demo; delete from public.albums where is_demo; delete from public.timeline_events where is_demo;
+insert into public.roles(name,slug,display_order) values('Team Member','team-member',1),('Recon','recon',2),('Support','support',3),('Assault','assault',4),('Medic','medic',5) on conflict do nothing;
+insert into public.site_settings(key,value) values('general','{"teamName":"Airsoft Armer Team","shortName":"AAT","tagline":"PLAY HARD. MOVE TOGETHER.","location":"Fundu Moldovei, Suceava, România","contactEmail":"CONFIGURE_IN_ADMIN","introEnabled":true,"introMapEnabled":true,"recruitmentEnabled":true,"footerText":"AAT // ALL RIGHTS RESERVED","accentColor":"#B41F25"}'::jsonb) on conflict(key) do nothing;
+insert into public.members(first_name,last_name,callsign,slug,status,operator_id,short_bio,bio,profile_image_url,hero_image_url,featured,display_order,is_demo)
+values('Cosmin','—','BLACKICE','blackice','active','AAT-DEMO-01','Profil demonstrativ.','Conținut demonstrativ care trebuie înlocuit din admin.','/images/team-demo.png','/images/team-demo.png',true,1,true),('Membru','Demo','GHOST','ghost','active','AAT-DEMO-02','Profil demonstrativ.','Conținut demonstrativ.','/images/hero-demo.png','/images/hero-demo.png',true,2,true) on conflict(slug) do nothing;
+insert into public.operations(title,slug,date,location,cover_url,description,event_type,organizer,is_demo)
+values('Operation Dark Forest','dark-forest-demo','2026-08-12','Fundu Moldovei // DEMO','/images/operation-demo.png','Operațiune demonstrativă, nu un eveniment real.','Milsim // DEMO','Demo organizer',true) on conflict(slug) do nothing;
+insert into public.timeline_events(year,title,description,display_order,is_demo) values(2026,'DEMO TIMELINE EVENT','Înlocuiește acest eveniment din admin.',1,true);

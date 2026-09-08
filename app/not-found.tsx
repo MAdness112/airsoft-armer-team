@@ -1,0 +1,1 @@
+import Link from'next/link';export default function NotFound(){return <main className="error-page"><p>AAT // 404</p><h1>TARGET<br/>NOT FOUND</h1><Link className="button button-primary" href="/">RETURN TO BASE →</Link></main>}

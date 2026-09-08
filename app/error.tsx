@@ -1,0 +1,1 @@
+'use client';export default function Error({reset}:{error:Error&{digest?:string};reset:()=>void}){return <main className="error-page"><p>AAT // 500</p><h1>COMMUNICATION<br/>FAILURE</h1><button className="button button-primary" onClick={reset}>RETRY CONNECTION →</button></main>}

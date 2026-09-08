@@ -1,0 +1,20 @@
+import type {Album,Member,Operation,SiteSettings} from './types';
+const portraits=['/images/team-demo.png','/images/hero-demo.png','/images/operation-demo.png'];
+export const members:Member[]=[
+ {id:'m1',slug:'blackice',firstName:'Cosmin',lastName:'—',callsign:'BLACKICE',role:'Team Member',status:'active',operatorId:'AAT-DEMO-01',shortBio:'Operator demonstrativ pentru prezentarea profilului.',bio:'Acest profil folosește conținut demonstrativ. Biografia reală, rolul și echipamentul se modifică din administrare.',profileImage:portraits[0],heroImage:portraits[0],primaryReplica:'M4 platform // DEMO',secondaryReplica:'—',gear:'Plate carrier // DEMO',specialty:'Assault',playStyle:'Team-oriented',motto:'Move together.',badges:['DEMO'],featured:true,displayOrder:1,isDemo:true},
+ {id:'m2',slug:'ghost',firstName:'Membru',lastName:'Demo',callsign:'GHOST',role:'Recon',status:'active',shortBio:'Date demonstrative, gata de înlocuit.',profileImage:portraits[1],specialty:'Recon',badges:['DEMO'],featured:true,displayOrder:2,isDemo:true},
+ {id:'m3',slug:'viper',firstName:'Membru',lastName:'Demo',callsign:'VIPER',role:'Support',status:'active',shortBio:'Date demonstrative, gata de înlocuit.',profileImage:portraits[2],specialty:'Support',badges:['DEMO'],featured:true,displayOrder:3,isDemo:true},
+ {id:'m4',slug:'nomad',firstName:'Membru',lastName:'Demo',callsign:'NOMAD',role:'Assault',status:'reserve',shortBio:'Date demonstrative, gata de înlocuit.',profileImage:portraits[0],badges:['DEMO'],displayOrder:4,isDemo:true},
+ {id:'m5',slug:'raven',firstName:'Membru',lastName:'Demo',callsign:'RAVEN',role:'Medic',status:'veteran',shortBio:'Date demonstrative, gata de înlocuit.',profileImage:portraits[1],badges:['DEMO'],displayOrder:5,isDemo:true},
+];
+export const operations:Operation[]=[
+ {id:'o1',slug:'dark-forest-demo',title:'Operation Dark Forest',date:'2026-08-12',location:'Fundu Moldovei // DEMO',description:'Dosar demonstrativ pentru o operațiune. Înlocuiește-l din admin cu datele reale ale jocului.',cover:'/images/operation-demo.png',eventType:'Milsim // DEMO',organizer:'Demo organizer',memberIds:['m1','m2','m3'],tags:['forest','demo'],albumSlug:'dark-forest-demo',isDemo:true},
+ {id:'o2',slug:'red-dawn-demo',title:'Red Dawn',date:'2026-06-23',location:'Suceava // DEMO',description:'Conținut demonstrativ pentru testarea listelor și filtrelor.',cover:'/images/hero-demo.png',eventType:'Skirmish // DEMO',memberIds:['m1','m4'],tags:['demo'],albumSlug:'red-dawn-demo',isDemo:true},
+ {id:'o3',slug:'frozen-ground-demo',title:'Frozen Ground',date:'2026-01-18',location:'Bucovina // DEMO',description:'Conținut demonstrativ, nu reprezintă un eveniment real.',cover:'/images/team-demo.png',eventType:'Scenario // DEMO',memberIds:['m2','m3'],tags:['winter','demo'],isDemo:true},
+];
+const demoPhotos=['/images/operation-demo.png','/images/team-demo.png','/images/hero-demo.png','/images/operation-demo.png','/images/hero-demo.png','/images/team-demo.png'].map((url,i)=>({id:`p${i+1}`,url,alt:`Fotografie airsoft demonstrativă ${i+1}`,memberIds:i%2?['m1']:['m2','m3'],sortOrder:i}));
+export const albums:Album[]=[
+ {id:'a1',slug:'dark-forest-demo',title:'Operation Dark Forest',date:'2026-08-12',location:'Fundu Moldovei // DEMO',description:'Album demonstrativ. Fotografiile generate sunt temporare și pot fi înlocuite prin upload.',cover:'/images/operation-demo.png',photographer:'DEMO',tags:['forest','demo'],memberIds:['m1','m2','m3'],photos:demoPhotos,downloadEnabled:false,isDemo:true},
+ {id:'a2',slug:'red-dawn-demo',title:'Red Dawn',date:'2026-06-23',location:'Suceava // DEMO',description:'Album demonstrativ pentru layout.',cover:'/images/hero-demo.png',tags:['demo'],memberIds:['m1','m4'],photos:demoPhotos.slice(0,4),downloadEnabled:false,isDemo:true},
+];
+export const settings:SiteSettings={teamName:'Airsoft Armer Team',shortName:'AAT',tagline:'PLAY HARD. MOVE TOGETHER.',location:'Fundu Moldovei, Suceava, România',contactEmail:'CONFIGURE_IN_ADMIN',introEnabled:true,introMapEnabled:true,recruitmentEnabled:true,footerText:'AAT // ALL RIGHTS RESERVED',accentColor:'#B41F25'};

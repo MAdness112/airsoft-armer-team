@@ -1,3 +1,4 @@
 import type{Metadata}from'next';import{getMembers}from'@/lib/data';import{MemberCard}from'@/components/site/cards';import{PageHero,PageShell}from'@/components/site/page-shell';
+export const dynamic='force-dynamic';
 export const metadata:Metadata={title:'The Unit',description:'Membrii Airsoft Armer Team.'};
 export default async function TeamPage(){const members=await getMembers();return <PageShell><PageHero eyebrow="AAT // UNIT" title="THE UNIT" subtitle="THE PEOPLE BEHIND THE PATCH." image="/images/team-demo.png"/><section className="listing shell"><div className="filters" aria-label="Filtre demonstrative"><button className="active">ALL</button><button>ACTIVE</button><button>RESERVE</button><button>VETERANS</button></div>{members.length?<div className="member-grid">{members.map(m=><MemberCard key={m.id} member={m}/>)}</div>:<div className="empty">NO CONTACTS FOUND</div>}</section></PageShell>}

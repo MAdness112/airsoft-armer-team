@@ -1,3 +1,4 @@
 import type{Metadata}from'next';import{getOperations}from'@/lib/data';import{OperationCard}from'@/components/site/cards';import{PageHero,PageShell}from'@/components/site/page-shell';
+export const dynamic='force-dynamic';
 export const metadata:Metadata={title:'Operations',description:'Jocuri și operațiuni Airsoft Armer Team.'};
 export default async function OperationsPage(){const operations=await getOperations();return <PageShell><PageHero eyebrow="AAT // OPERATIONS" title="MISSION FILES" subtitle="AFTER ACTION REPORTS // FIELD OPERATIONS" image="/images/operation-demo.png"/><section className="listing shell">{operations.length?<div className="operation-grid">{operations.map(o=><OperationCard key={o.id} operation={o}/>)}</div>:<div className="empty">NO OPERATIONS LOGGED</div>}</section></PageShell>}

@@ -1,3 +1,4 @@
+import {contentDefaults} from './content-settings';
 import type {Album,Member,Operation,SiteSettings} from './types';
 const portraits=['/images/team-demo.png','/images/hero-demo.png','/images/operation-demo.png'];
 export const members:Member[]=[
@@ -17,4 +18,4 @@ export const albums:Album[]=[
  {id:'a1',slug:'dark-forest-demo',title:'Operation Dark Forest',date:'2026-08-12',location:'Fundu Moldovei // DEMO',description:'Album demonstrativ. Fotografiile generate sunt temporare și pot fi înlocuite prin upload.',cover:'/images/operation-demo.png',photographer:'DEMO',tags:['forest','demo'],memberIds:['m1','m2','m3'],photos:demoPhotos,downloadEnabled:false,isDemo:true},
  {id:'a2',slug:'red-dawn-demo',title:'Red Dawn',date:'2026-06-23',location:'Suceava // DEMO',description:'Album demonstrativ pentru layout.',cover:'/images/hero-demo.png',tags:['demo'],memberIds:['m1','m4'],photos:demoPhotos.slice(0,4),downloadEnabled:false,isDemo:true},
 ];
-export const settings:SiteSettings={teamName:'Airsoft Armer Team',shortName:'AAT',tagline:'PLAY HARD. MOVE TOGETHER.',location:'Fundu Moldovei, Suceava, România',contactEmail:'CONFIGURE_IN_ADMIN',introEnabled:true,introMapEnabled:true,recruitmentEnabled:true,footerText:'AAT // ALL RIGHTS RESERVED',accentColor:'#B41F25'};
+export const settings:SiteSettings={...contentDefaults,teamName:'Airsoft Armer Team',shortName:'AAT',tagline:'PLAY HARD. MOVE TOGETHER.',location:'Fundu Moldovei, Suceava, România',contactEmail:'CONFIGURE_IN_ADMIN',introEnabled:true,introMapEnabled:true,recruitmentEnabled:true,footerText:'AAT // ALL RIGHTS RESERVED',accentColor:'#B41F25'};

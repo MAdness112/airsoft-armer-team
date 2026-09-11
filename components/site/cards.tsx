@@ -1,4 +1,73 @@
-import Link from 'next/link';import{ArrowRight}from'lucide-react';import type{Album,Member,Operation}from'@/lib/types';
-export function MemberCard({member}:Readonly<{member:Member}>){return <Link href={`/team/${member.slug}`} className="member-card"><div className="card-image"><img src={member.profileImage} alt={`Portret demonstrativ ${member.callsign}`}/>{member.isDemo&&<span className="demo-badge">DEMO</span>}<div className="acquire">ACQUIRE TARGET</div></div><div className="member-info"><small>{member.operatorId??member.status.toUpperCase()}</small><h3>{member.callsign}</h3><p>{member.firstName} <span>// {member.role}</span></p><b>VIEW DOSSIER <ArrowRight size={14}/></b></div></Link>}
-export function OperationCard({operation}:Readonly<{operation:Operation}>){return <Link href={`/operations/${operation.slug}`} className="operation-card"><div className="card-image"><img src={operation.cover} alt={`Copertă ${operation.title}`}/>{operation.isDemo&&<span className="demo-badge">DEMO DATA</span>}</div><div><p>{new Date(operation.date).toLocaleDateString('ro-RO',{day:'2-digit',month:'long',year:'numeric'}).toUpperCase()}</p><h3>{operation.title}</h3><span>{operation.location}</span><b>VIEW AFTER ACTION REPORT <ArrowRight size={14}/></b></div></Link>}
-export function AlbumCard({album}:Readonly<{album:Album}>){return <Link href={`/gallery/${album.slug}`} className="album-card"><div className="card-image"><img src={album.cover} alt={`Copertă album ${album.title}`}/>{album.isDemo&&<span className="demo-badge">DEMO ALBUM</span>}<span className="photo-count">{album.photos.length.toString().padStart(2,'0')} PHOTOS</span></div><p>{new Date(album.date).toLocaleDateString('ro-RO')} // {album.location}</p><h3>{album.title}</h3></Link>}
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import type { Album, Member, Operation } from '@/lib/types';
+export function MemberCard({ member }: Readonly<{ member: Member }>) {
+  return (
+    <Link href={`/team/${member.slug}`} className="member-card">
+      <div className="card-image">
+        <img
+          src={member.profileImage || '/images/team-demo.png'}
+          style={{ objectPosition: member.profilePosition || '50% 50%' }}
+          alt={`Portret ${member.callsign}`}
+        />
+        {member.isDemo && <span className="demo-badge">DEMO</span>}
+        <div className="acquire">ACQUIRE TARGET</div>
+      </div>
+      <div className="member-info">
+        <small>{member.operatorId ?? member.status.toUpperCase()}</small>
+        <h3>{member.callsign}</h3>
+        <p>
+          {member.firstName} <span>// {member.role}</span>
+        </p>
+        <b>
+          VIEW DOSSIER <ArrowRight size={14} />
+        </b>
+      </div>
+    </Link>
+  );
+}
+export function OperationCard({
+  operation,
+}: Readonly<{ operation: Operation }>) {
+  return (
+    <Link href={`/operations/${operation.slug}`} className="operation-card">
+      <div className="card-image">
+        <img src={operation.cover} alt={`Copertă ${operation.title}`} />
+        {operation.isDemo && <span className="demo-badge">DEMO DATA</span>}
+      </div>
+      <div>
+        <p>
+          {new Date(operation.date)
+            .toLocaleDateString('ro-RO', {
+              day: '2-digit',
+              month: 'long',
+              year: 'numeric',
+            })
+            .toUpperCase()}
+        </p>
+        <h3>{operation.title}</h3>
+        <span>{operation.location}</span>
+        <b>
+          VIEW AFTER ACTION REPORT <ArrowRight size={14} />
+        </b>
+      </div>
+    </Link>
+  );
+}
+export function AlbumCard({ album }: Readonly<{ album: Album }>) {
+  return (
+    <Link href={`/gallery/${album.slug}`} className="album-card">
+      <div className="card-image">
+        <img src={album.cover} alt={`Copertă album ${album.title}`} />
+        {album.isDemo && <span className="demo-badge">DEMO ALBUM</span>}
+        <span className="photo-count">
+          {album.photos.length.toString().padStart(2, '0')} PHOTOS
+        </span>
+      </div>
+      <p>
+        {new Date(album.date).toLocaleDateString('ro-RO')} // {album.location}
+      </p>
+      <h3>{album.title}</h3>
+    </Link>
+  );
+}

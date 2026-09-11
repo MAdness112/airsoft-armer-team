@@ -1,6 +1,6 @@
 # Airsoft Armer Team — website + CMS
 
-Site oficial multi-pagină pentru Airsoft Armer Team, construit cu React/Next-compatible Vinext, TypeScript, Tailwind CSS și Supabase. Proiectul pornește fără backend în **Demo Mode** și trece automat pe Supabase când sunt configurate variabilele publice.
+Site oficial multi-pagină pentru Airsoft Armer Team, construit cu Next.js, React, TypeScript, Tailwind CSS și Supabase. Proiectul pornește fără backend în **Demo Mode** și trece automat pe Supabase când sunt configurate variabilele publice.
 
 ## Ce este inclus
 
@@ -16,7 +16,7 @@ Site oficial multi-pagină pentru Airsoft Armer Team, construit cu React/Next-co
 
 ## Pornire locală
 
-Necesită Node.js 22.13+.
+Necesită Node.js 20.18.1–24.x.
 
 ```bash
 npm install
@@ -31,8 +31,7 @@ Deschide URL-ul afișat de terminal. Fără variabile Supabase, aplicația porne
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://PROJECT_REF.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_ANON_KEY
-NEXT_PUBLIC_SITE_URL=https://www.domeniul-tau.ro
-NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
+NEXT_PUBLIC_SITE_URL=https://airsoft-armer-team.vercel.app
 ```
 
 Folosește doar cheia `anon`/publishable în frontend. **Nu adăuga niciodată `service_role` în proiect sau în Vercel.**
@@ -84,8 +83,8 @@ npm run build
 
 1. Încarcă proiectul într-un repository Git.
 2. În Vercel: **Add New → Project**, selectează repository-ul.
-3. Configurează variabilele din `.env.example` pentru Production, Preview și Development.
-4. Build command: `npm run build`.
+3. Configurează variabilele Supabase din `.env.example` pentru Production, Preview și Development.
+4. Păstrează presetul **Next.js**, Build Command și Output Directory pe valorile detectate automat.
 5. După primul deploy, setează `NEXT_PUBLIC_SITE_URL` la domeniul final și redeploy.
 6. În Supabase Authentication adaugă domeniul Vercel în **URL Configuration → Site URL / Redirect URLs**.
 

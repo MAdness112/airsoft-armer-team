@@ -2020,7 +2020,10 @@ button {
   padding: 32px;
   color: #f4f4f2;
   background: radial-gradient(circle at 50% 42%, #202326 0, #0c0d0e 46%, #050506 100%);
+  text-align: center;
 }
+.offline-page::before,.offline-page::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(180,31,37,.65), transparent); }
+.offline-page::before { top: 8vh; }.offline-page::after { bottom: 8vh; }
 .offline-grid {
   position: absolute;
   inset: 0;
@@ -2046,20 +2049,32 @@ button {
   background: rgba(7,8,9,.76);
   box-shadow: 0 30px 90px rgba(0,0,0,.55), inset 3px 0 0 #b41f25;
 }
+.offline-panel::before { content: 'NO SIGNAL // PUBLIC ACCESS SUSPENDED'; position: absolute; top: -25px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.32); font: 8px/1 monospace; letter-spacing: .22em; white-space: nowrap; }
+.offline-classification,.offline-code { display: flex; justify-content: space-between; gap: 20px; color: #777d82; font: 8px/1 monospace; letter-spacing: .15em; }
+.offline-classification { margin-bottom: 30px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.offline-classification b { color: #c72a31; font-weight: 600; }
+.offline-reticle { position: relative; display: grid; place-items: center; width: 88px; height: 88px; margin: 4px auto 24px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; color: #eceeed; font: 800 18px/1 'Arial Narrow',sans-serif; letter-spacing: .08em; box-shadow: 0 0 0 8px rgba(255,255,255,.025), 0 0 42px rgba(180,31,37,.14); }
+.offline-reticle::before,.offline-reticle::after { content: ''; position: absolute; background: rgba(196,41,47,.75); }
+.offline-reticle::before { width: 118px; height: 1px; }.offline-reticle::after { width: 1px; height: 118px; }
+.offline-reticle span { position: relative; z-index: 1; padding: 6px; background: #0b0d0e; }
+.offline-corner { position: absolute; width: 22px; height: 22px; border-color: rgba(196,41,47,.8); }
+.corner-nw { top: 12px; left: 12px; border-top: 1px solid; border-left: 1px solid; }.corner-ne { top: 12px; right: 12px; border-top: 1px solid; border-right: 1px solid; }.corner-sw { bottom: 12px; left: 12px; border-bottom: 1px solid; border-left: 1px solid; }.corner-se { bottom: 12px; right: 12px; border-bottom: 1px solid; border-right: 1px solid; }
+.offline-coordinates { position: absolute; left: 4vw; bottom: 5vh; display: flex; gap: 18px; color: rgba(255,255,255,.32); font: 8px/1 monospace; letter-spacing: .16em; }
 .offline-kicker,.offline-location,.offline-panel small {
   font-family: monospace;
   letter-spacing: .18em;
   text-transform: uppercase;
 }
-.offline-kicker { margin: 0 0 28px; color: #858a91; font-size: 11px; }
-.offline-indicator { display: flex; align-items: center; gap: 10px; color: #e5363d; font: 700 12px monospace; letter-spacing: .2em; }
+.offline-kicker { margin: 0 0 18px; color: #858a91; font-size: 10px; }
+.offline-indicator { display: flex; align-items: center; justify-content: center; gap: 10px; color: #e5363d; font: 700 12px monospace; letter-spacing: .2em; }
 .offline-indicator span { width: 8px; height: 8px; border-radius: 50%; background: #e5363d; box-shadow: 0 0 18px #e5363d; }
 .offline-panel h1 { max-width: 620px; margin: 24px 0 18px; font-size: clamp(38px, 7vw, 82px); line-height: .92; letter-spacing: -.045em; }
-.offline-copy { max-width: 570px; color: #b7bbc0; font-size: clamp(15px, 2vw, 18px); line-height: 1.7; }
+.offline-copy { max-width: 570px; margin-inline: auto; color: #b7bbc0; font-size: clamp(15px, 2vw, 18px); line-height: 1.7; }
 .offline-rule { width: 100%; height: 1px; margin: 36px 0 22px; background: linear-gradient(90deg, #b41f25, rgba(255,255,255,.14), transparent); }
 .offline-location { color: #d7d8d9; font-size: 10px; line-height: 1.8; }
 .offline-panel small { display: block; margin-top: 12px; color: #676b70; font-size: 9px; }
-@media (max-width: 640px) { .offline-control { align-items: flex-start; flex-direction: column; } .offline-page { padding: 18px; } }
+.offline-code { margin-top: 34px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.08); }
+@media (max-width: 640px) { .offline-control { align-items: flex-start; flex-direction: column; } .offline-page { padding: 18px; } .offline-panel { padding: 42px 24px; } .offline-coordinates { display: none; } .offline-classification,.offline-code { font-size: 7px; } }
 .admin-table {
   background: white;
   border: 1px solid #dfe1dd;

@@ -84,6 +84,9 @@ export function ContentEditor({ section }: { section: 'about' | 'settings' }) {
               'fieldShowMap',
             ]
           : [
+              'offlineMode',
+              'offlineTitle',
+              'offlineMessage',
               ...locationFields.map((f) => f[0]),
               ...introToggles.map((f) => f[0]),
               'introDuration',
@@ -289,6 +292,39 @@ export function ContentEditor({ section }: { section: 'about' | 'settings' }) {
               </>
             ) : (
               <>
+                <div className={`offline-control ${data.offlineMode ? 'is-active' : ''}`}>
+                  <div>
+                    <p>SITE AVAILABILITY</p>
+                    <h2>{data.offlineMode ? 'OFFLINE MODE ACTIVE' : 'SITE ONLINE'}</h2>
+                    <span>
+                      Panoul /admin rămâne accesibil pentru reactivarea site-ului.
+                    </span>
+                  </div>
+                  <label className="member-check" htmlFor="offline-mode">
+                    <Checkbox
+                      id="offline-mode"
+                      checked={data.offlineMode}
+                      onCheckedChange={(v) => change('offlineMode', v)}
+                    />
+                    OFFLINE MODE
+                  </label>
+                </div>
+                <label>
+                  OFFLINE PAGE TITLE
+                  <input
+                    required
+                    value={data.offlineTitle}
+                    onChange={(e) => change('offlineTitle', e.target.value)}
+                  />
+                </label>
+                <label>
+                  OFFLINE PAGE MESSAGE
+                  <textarea
+                    rows={3}
+                    value={data.offlineMessage}
+                    onChange={(e) => change('offlineMessage', e.target.value)}
+                  />
+                </label>
                 <h2>GENERAL</h2>
                 {[
                   'teamName',

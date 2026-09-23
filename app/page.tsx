@@ -4,6 +4,7 @@ import { ArrowDown, ArrowRight } from 'lucide-react';
 import { MapIntro } from '@/components/site/map-intro';
 import { Navbar } from '@/components/site/navbar';
 import { Footer } from '@/components/site/footer';
+import { OfflinePage } from '@/components/site/offline-page';
 import { AlbumCard, MemberCard } from '@/components/site/cards';
 import { getAlbums, getMembers, getOperations, getSettings } from '@/lib/data';
 
@@ -14,6 +15,7 @@ export default async function Home() {
     getAlbums(),
     getSettings(),
   ]);
+  if (settings.offlineMode) return <OfflinePage settings={settings} />;
   const latest = operations[0];
   return (
     <main>

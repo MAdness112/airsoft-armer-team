@@ -6,6 +6,11 @@ const valueSchema = z.object({
   icon: z.string(),
 });
 export const contentSchema = z.object({
+  offlineMode: z.boolean().default(false),
+  offlineTitle: z.string().min(1).default('SITE TEMPORAR OFFLINE'),
+  offlineMessage: z
+    .string()
+    .default('Revenim în curând. Airsoft Armer Team pregătește următoarea misiune.'),
   locationName: z.string().min(1).default('Fundu Moldovei'),
   locationCounty: z.string().min(1).default('Suceava'),
   locationCountry: z.string().min(1).default('Romania'),

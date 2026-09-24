@@ -87,15 +87,88 @@ const phrases: [string, string][] = [
   ['Iulie', 'July'], ['August', 'August'], ['Septembrie', 'September'], ['Octombrie', 'October'], ['Noiembrie', 'November'], ['Decembrie', 'December'],
 ];
 
+const editorialPhrases: [string, string][] = [
+  [`AAT funcționează ca o unitate, nu ca un grup de jucători independenți. Fiecare membru are propriile puncte forte, propriul stil și propriul rol, dar în teren toate acestea trebuie să servească aceluiași obiectiv.
+Punem accent pe comunicare, disciplină, adaptare și execuție. Nu căutăm doar să jucăm mai agresiv, ci să jucăm mai organizat.
+DISCIPLINE // COORDINATION // ADAPTATION // EXECUTION`, `AAT operates as a unit, not as a group of independent players. Every member has distinct strengths, a personal style and a defined role, but on the field all of them serve the same objective.
+We rely on communication, discipline, adaptation and execution. Our goal is not simply to play more aggressively, but to operate with greater structure.
+DISCIPLINE // COORDINATION // ADAPTATION // EXECUTION`],
+  [`Nu am început ca o echipă construită după un tipar.
+Am început ca un grup de oameni din aceeași zonă, veniți din medii diferite, cu experiențe diferite și skill-uri care, puse împreună, au început să formeze ceva mult mai coerent.
+Unii au venit cu experiență militară.
+Alții cu pregătire medicală.
+Unii cu experiență tehnică, logistică sau organizațională.
+Alții pur și simplu cu instinct bun de joc, disciplină și dorința de a evolua.
+În timp, diferențele dintre noi au devenit avantajul nostru.
+Fiecare membru a adus ceva ce ceilalți nu aveau, iar echipa a început să funcționeze ca un sistem: roluri diferite, responsabilități diferite, același obiectiv.
+Nu încercăm să fim identici.
+Încercăm să fim complementari.
+Pe teren, asta înseamnă comunicare, disciplină, adaptare și încredere. În afara lui, înseamnă antrenament, organizare și dezvoltarea constantă a echipei.
+Nu ne-am format pentru imagine.
+Ne-am format pentru eficiență.
+Din oameni diferiți.
+Din experiențe diferite.
+Din aceeași mentalitate.
+ONE TEAM // MULTIPLE SKILLS // ONE OBJECTIVE`, `We did not begin as a team built from a template.
+We began as a group of people from the same area, coming from different backgrounds, with different experience and skills that gradually formed something far more cohesive.
+Some brought military experience. Others brought medical training. Some contributed technical, logistical or organizational expertise. Others brought strong field instincts, discipline and the drive to improve.
+Over time, our differences became our advantage. Every member contributed something the others did not have, and the team began to work as a system: different roles, different responsibilities, one objective.
+We do not try to be identical. We aim to complement one another.
+On the field, that means communication, discipline, adaptation and trust. Away from it, it means training, organization and constant development.
+We were not formed for appearances. We were formed for effectiveness.
+Different people. Different experience. The same mindset.
+ONE TEAM // MULTIPLE SKILLS // ONE OBJECTIVE`],
+  [`Nu intrăm pe teren doar pentru schimburi de foc.
+Preferăm jocurile în care fiecare mișcare are un motiv, fiecare rol contează, iar succesul vine din coordonare, nu din haos.
+Jucăm scenarii bazate pe obiective, deplasare în echipă, controlul zonelor, recuperare, escortă, apărare și misiuni care cer adaptare constantă.
+Punem accent pe comunicare, disciplină și decizii rapide. Uneori agresiv. Alteori lent și calculat. Stilul se schimbă în funcție de teren și misiune.
+Nu urmărim doar eliminări.
+Urmărim obiectivul.
+MISSION // MOVEMENT // COORDINATION // EXECUTION`, `We do not enter the field simply to exchange fire.
+We prefer games where every movement has a purpose, every role matters and success comes from coordination rather than chaos.
+We play objective-based scenarios involving team movement, area control, recovery, escort, defence and missions that demand constant adaptation.
+We value communication, discipline and fast decisions. At times we move offensively; at others, slowly and deliberately. Our approach changes with the terrain and the mission.
+We do not chase eliminations. We pursue the objective.
+MISSION // MOVEMENT // COORDINATION // EXECUTION`],
+  [`Principiile care ne țin împreună, pe teren și în afara lui.`, `The principles that keep us together, on and off the field.`],
+  [`AOR reprezintă un complex industrial dezafectat, transformat într-un spațiu ideal pentru simulări militare de înalt nivel, unde realismul și diversitatea mediului joacă un rol esențial.
+Clădirea principală, o fostă unitate de procesare a produselor miniere, domină zona prin structura sa masivă, cu parter și două etaje. Interiorul este compartimentat într-o rețea complexă de camere, coridoare înguste, hale largi și platforme tehnice, oferind numeroase oportunități pentru scenarii tactice variate – de la lupte în spații închise (CQB) până la operațiuni de control al clădirii pe verticală. Scările, pasarelele metalice și fostele instalații industriale creează obstacole naturale și puncte strategice pentru ambuscade sau poziții de apărare.
+În jurul clădirii principale se întinde o rețea de spații anexe de depozitare – hangare, magazii și structuri parțial degradate – care adaugă profunzime terenului de joc. Acestea pot fi folosite ca zone de tranzit, puncte de aprovizionare sau locații secundare pentru obiectivele misiunii. Distanțele variate și liniile de vizibilitate fragmentate încurajează coordonarea în echipă și utilizarea tacticilor avansate.
+Un element distinctiv al locației este galeria fostei mine, situată în imediata apropiere a complexului. Acest spațiu subteran introduce o dimensiune complet diferită a simulării: întuneric, ecou, vizibilitate redusă și trasee labirintice. Galeria poate servi drept zonă de infiltrare, rută de evacuare sau obiectiv critic, intensificând tensiunea și realismul scenariilor.
+Întregul ansamblu oferă un mediu autentic, dur și imprevizibil, perfect pentru antrenamente tactice complexe sau simulări militare realiste, unde fiecare colț poate deveni un punct cheie într-o operațiune bine coordonată.`, `AOR is a decommissioned industrial complex transformed into a demanding airsoft environment where realism and variety shape every mission.
+The main building, formerly used to process mining products, dominates the site with a ground floor and two upper levels. Its network of rooms, narrow corridors, open halls and technical platforms supports scenarios ranging from close-quarters engagements to vertical building-control operations. Stairways, metal walkways and industrial structures create natural obstacles, ambush points and defensive positions.
+Around it, hangars, storage buildings and partially degraded structures add depth to the field. They serve as transit areas, supply points or secondary objectives, while varied distances and broken sightlines reward coordination and advanced tactics.
+The nearby former mine gallery adds a completely different dimension: darkness, echoes, restricted visibility and maze-like routes. It can become an infiltration route, an evacuation corridor or a critical objective.
+Together, these areas create an authentic, unforgiving and unpredictable environment where every corner can become decisive in a coordinated operation.`],
+  [`Patch-ul A.A.T. reprezintă identitatea vizuală a echipei și principiile după care funcționăm.
+Forma închisă a emblemei simbolizează unitatea — oameni diferiți, roluri diferite, dar aceeași structură și același obiectiv.
+În centru se află simbolul care definește echipa: două forme opuse, legate într-un singur ansamblu. Reprezintă echilibrul dintre inițiativă și control, dintre individ și echipă, dintre acțiune și coordonare.
+ARMER ocupă centrul patch-ului pentru că reprezintă nucleul identității noastre.
+A.A.T. — Airsoft Armer Team este numele sub care această identitate devine unitate.
+Contrastul dintre negru, alb și galben nu este întâmplător: negrul sugerează discreție și control, albul claritate și precizie, iar galbenul marchează elementele care trebuie recunoscute imediat.
+Nu este doar un logo.
+Este semnul sub care intrăm pe teren, ne recunoaștem oamenii și reprezentăm aceeași echipă.
+ONE SYMBOL // ONE UNIT // ONE IDENTITY
+A.A.T. — AIRSOFT ARMER TEAM`, `The A.A.T. patch represents our visual identity and the principles that guide the team.
+Its closed shape symbolizes unity: different people and roles operating within the same structure toward the same objective.
+At its centre, two opposing forms connect into one symbol. They represent the balance between initiative and control, individual ability and teamwork, action and coordination.
+ARMER occupies the centre because it is the core of our identity. A.A.T. — Airsoft Armer Team is the name under which that identity becomes a unit.
+The black, white and yellow palette is deliberate: black suggests discretion and control, white clarity and precision, while yellow marks what must be recognized immediately.
+It is more than a logo. It is the mark under which we enter the field, identify our people and represent the same team.
+ONE SYMBOL // ONE UNIT // ONE IDENTITY
+A.A.T. — AIRSOFT ARMER TEAM`],
+];
+
 const normalize = (value: string) => value.replace(/\s+/g, ' ').trim();
-const roToEn = new Map(phrases.map(([ro, en]) => [normalize(ro).toLocaleUpperCase('ro'), en]));
-const enToRo = new Map(phrases.map(([ro, en]) => [normalize(en).toUpperCase(), ro]));
+const allPhrases = [...phrases, ...editorialPhrases];
+const roToEn = new Map(allPhrases.map(([ro, en]) => [normalize(ro).toLocaleUpperCase('ro'), en]));
+const enToRo = new Map(allPhrases.map(([ro, en]) => [normalize(en).toUpperCase(), ro]));
 
 function translated(value: string, locale: Locale) {
   const clean = normalize(value);
   if (!clean) return value;
   const direct = locale === 'en' ? roToEn.get(clean.toLocaleUpperCase('ro')) : enToRo.get(clean.toUpperCase());
-  if (direct) return value.replace(clean, direct);
+  if (direct) return direct;
   let result = clean;
   if (locale === 'ro') {
     result = result

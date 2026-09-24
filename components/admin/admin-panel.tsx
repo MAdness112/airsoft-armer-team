@@ -243,24 +243,50 @@ function Dashboard() {
 function Manager({
   section,
 }: {
-  section: 'members' | 'operations' | 'albums';
+  section: 'operations' | 'albums';
 }) {
-  const initial =
-    section === 'members'
-      ? members
-      : section === 'operations'
-        ? operations
-        : albums;
+  const initial = section === 'operations' ? operations : albums;
   const [items, setItems] = useState(
-    initial.map((x) => ({
+    (isDemoMode ? initial : []).map((x) => ({
       id: x.id,
-      title: 'callsign' in x ? x.callsign : x.title,
+      title: x.title,
       slug: x.slug,
-      status: 'status' in x ? x.status : 'draft',
+      status: x.isDemo ? 'demo' : 'published',
     })),
   );
   const [editing, setEditing] = useState(false);
   const [message, setMessage] = useState('');
+  const [loadingItems, setLoadingItems] = useState(!isDemoMode);
+  useEffect(() => {
+    if (isDemoMode) return;
+    let live = true;
+    const db = getSupabase()!;
+    void db
+      .from(section)
+      .select('id,title,slug,is_published,is_demo')
+      .order('date', { ascending: false })
+      .then(({ data, error }) => {
+        if (!live) return;
+        if (error) setMessage(`LOAD FAILED // ${error.message}`);
+        else
+          setItems(
+            (data ?? []).map((row) => ({
+              id: row.id,
+              title: row.title,
+              slug: row.slug,
+              status: row.is_demo
+                ? 'demo'
+                : row.is_published
+                  ? 'published'
+                  : 'draft',
+            })),
+          );
+        setLoadingItems(false);
+      });
+    return () => {
+      live = false;
+    };
+  }, [section]);
   async function save(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget));
@@ -269,35 +295,38 @@ function Manager({
       data.slug || title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
     );
     if (!isDemoMode) {
-      const payload =
-        section === 'members'
-          ? {
-              callsign: title,
-              first_name: data.first_name,
-              last_name: data.last_name,
-              slug,
-              role_id: null,
-              status: 'active',
-              profile_image_url: data.image || '/images/team-demo.png',
-            }
-          : {
-              title,
-              slug,
-              date: data.date || new Date().toISOString().slice(0, 10),
-              location: data.location || '',
-              description: data.description || '',
-              cover_url: data.image || '/images/operation-demo.png',
-            };
-      const { error } = await getSupabase()!.from(section).insert(payload);
+      const payload = {
+        title,
+        slug,
+        date: data.date || new Date().toISOString().slice(0, 10),
+        location: data.location || '',
+        description: data.description || '',
+        cover_url: data.image || '/images/operation-demo.png',
+      };
+      const { data: created, error } = await getSupabase()!
+        .from(section)
+        .insert(payload)
+        .select('id,title,slug,is_published,is_demo')
+        .single();
       if (error) {
         setMessage(`UPLOAD FAILED // ${error.message}`);
         return;
       }
+      setItems((v) => [
+        {
+          id: created.id,
+          title: created.title,
+          slug: created.slug,
+          status: created.is_published ? 'published' : 'draft',
+        },
+        ...v,
+      ]);
+    } else {
+      setItems((v) => [
+        ...v,
+        { id: crypto.randomUUID(), title, slug, status: 'demo' },
+      ]);
     }
-    setItems((v) => [
-      ...v,
-      { id: crypto.randomUUID(), title, slug, status: 'draft' },
-    ]);
     setMessage('RECORD SAVED');
     setEditing(false);
   }
@@ -329,29 +358,7 @@ function Manager({
       {editing && (
         <form className="admin-form" onSubmit={save}>
           <h2>NEW {section.slice(0, -1).toUpperCase()}</h2>
-          {section === 'members' ? (
-            <>
-              <label>
-                CALLSIGN
-                <input name="callsign" required />
-              </label>
-              <div className="form-grid">
-                <label>
-                  FIRST NAME
-                  <input name="first_name" required />
-                </label>
-                <label>
-                  LAST NAME
-                  <input name="last_name" required />
-                </label>
-              </div>
-              <label>
-                ROLE
-                <input name="role" />
-              </label>
-            </>
-          ) : (
-            <>
+          <>
               <label>
                 TITLE
                 <input name="title" required />
@@ -370,8 +377,7 @@ function Manager({
                 DESCRIPTION
                 <textarea name="description" rows={4} />
               </label>
-            </>
-          )}
+          </>
           <label>
             SLUG
             <input name="slug" placeholder="generated-automatically" />
@@ -393,6 +399,10 @@ function Manager({
           <span>STATUS</span>
           <span>ACTIONS</span>
         </div>
+        {loadingItems && <div className="admin-table-empty">LOADING RECORDS...</div>}
+        {!loadingItems && items.length === 0 && (
+          <div className="admin-table-empty">NO RECORDS</div>
+        )}
         {items.map((item) => (
           <div key={item.id}>
             <b>{item.title}</b>

@@ -1523,6 +1523,13 @@ button {
   line-height: 1.8;
   max-width: 650px;
 }
+.editorial-block h2,
+.home-field h2 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.92;
+  overflow-wrap: normal;
+  word-break: normal;
+}
 .editorial > img {
   width: 100%;
   height: 72vh;

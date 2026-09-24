@@ -84,9 +84,8 @@ export default async function Home() {
         <div className="intro-image">
           <img
             src="/images/team-demo.png"
-            alt="Imagine demonstrativă cu o echipă de airsoft la briefing"
+            alt="Echipă de airsoft la briefing"
           />
-          <span>DEMO PHOTOGRAPHY // REPLACE IN ADMIN</span>
         </div>
         <div className="intro-copy">
           <p className="eyebrow">WHO WE ARE</p>
@@ -167,7 +166,6 @@ export default async function Home() {
             <div key={l}>
               <b>{String(v).padStart(2, '0')}</b>
               <span>{l}</span>
-              <small>DEMO / CALCULATED</small>
             </div>
           ))}
         </div>
@@ -191,7 +189,7 @@ export default async function Home() {
       <section className="join">
         <img
           src="/images/hero-demo.png"
-          alt="Imagine demonstrativă cu echipă de airsoft"
+          alt="Echipă de airsoft în teren"
         />
         <div className="shell">
           <p className="eyebrow">JOIN THE UNIT</p>

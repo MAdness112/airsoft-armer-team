@@ -10,7 +10,6 @@ export function MemberCard({ member }: Readonly<{ member: Member }>) {
           style={{ objectPosition: member.profilePosition || '50% 50%' }}
           alt={`Portret ${member.callsign}`}
         />
-        {member.isDemo && <span className="demo-badge">DEMO</span>}
         <div className="acquire">ACQUIRE TARGET</div>
       </div>
       <div className="member-info">
@@ -33,7 +32,6 @@ export function OperationCard({
     <Link href={`/operations/${operation.slug}`} className="operation-card">
       <div className="card-image">
         <img src={operation.cover} alt={`Copertă ${operation.title}`} />
-        {operation.isDemo && <span className="demo-badge">DEMO DATA</span>}
       </div>
       <div>
         <p>
@@ -59,7 +57,6 @@ export function AlbumCard({ album }: Readonly<{ album: Album }>) {
     <Link href={`/gallery/${album.slug}`} className="album-card">
       <div className="card-image">
         <img src={album.cover} alt={`Copertă album ${album.title}`} />
-        {album.isDemo && <span className="demo-badge">DEMO ALBUM</span>}
         <span className="photo-count">
           {album.photos.length.toString().padStart(2, '0')} PHOTOS
         </span>

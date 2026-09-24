@@ -29,7 +29,7 @@ export async function Footer() {
           <h3>CONTACT</h3>
           <Link href="/contact">Trimite un mesaj</Link>
           <Link href="/recruitment">Join the unit</Link>
-          <span>Social links // configurează în admin</span>
+          <span>CANALE SOCIALE // CONFIGURABILE DIN ADMIN</span>
         </div>
       </div>
       <div className="shell footer-bottom">

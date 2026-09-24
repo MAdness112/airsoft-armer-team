@@ -18,9 +18,9 @@ const phrases: [string, string][] = [
   ['OPERATORI DESFĂȘURAȚI', 'DEPLOYED OPERATORS'], ['DESCHIDE DOSARUL MISIUNII', 'OPEN MISSION FILE'],
   ['ARHIVĂ DE TEREN', 'FIELD ARCHIVE'], ['ULTIMELE INFORMAȚII DIN TEREN', 'LATEST FIELD INTEL'], ['VEZI ARHIVA', 'VIEW ARCHIVE'],
   ['MEMBRI', 'MEMBERS'], ['ALBUME', 'ALBUMS'], ['FOTOGRAFII', 'PHOTOS'], ['CALCULAT', 'CALCULATED'],
-  ['VALORI', 'VALUES'], ['CUM ACȚIONĂM.', 'HOW WE MOVE.'], ['ALĂTURĂ-TE UNITĂȚII', 'JOIN THE UNIT'],
-  ['CUM NE', 'HOW WE'], ['MIȘCĂM.', 'MOVE.'], ['MUNCĂ ÎN ECHIPĂ', 'TEAMWORK'], ['DISCIPLINĂ', 'DISCIPLINE'],
-  ['JOC CORECT', 'FAIR PLAY'], ['TACTICI', 'TACTICS'], ['RESPECT', 'RESPECT'],
+  ['VALORI', 'VALUES'], ['CUM OPERĂM.', 'HOW WE MOVE.'], ['ALĂTURĂ-TE UNITĂȚII', 'JOIN THE UNIT'],
+  ['CUM', 'HOW WE'], ['OPERĂM.', 'MOVE.'], ['COEZIUNE', 'TEAMWORK'], ['DISCIPLINĂ', 'DISCIPLINE'],
+  ['FAIR PLAY', 'FAIR PLAY'], ['TACTICĂ', 'TACTICS'], ['RESPECT', 'RESPECT'],
   ['CREZI CĂ LOCUL TĂU ESTE AICI?', 'THINK YOU BELONG HERE?'], ['VEZI CERINȚELE', 'SEE REQUIREMENTS'],
   ['CREZI CĂ', 'THINK YOU'], ['LOCUL TĂU ESTE AICI?', 'BELONG HERE?'],
   ['OAMENII DIN SPATELE EMBLEMEI.', 'THE PEOPLE BEHIND THE PATCH.'], ['TOȚI', 'ALL'], ['REZERVĂ', 'RESERVE'], ['VETERANI', 'VETERANS'],
@@ -40,13 +40,14 @@ const phrases: [string, string][] = [
   ['TOȚI ANII', 'ALL YEARS'], ['EVENIMENT', 'EVENT'], ['MEMBRU', 'MEMBER'], ['NICIO INFORMAȚIE DIN TEREN', 'NO FIELD INTEL FOUND'],
   ['FOTOGRAFIE', 'PHOTO'], ['ÎNCHIDE', 'CLOSE'], ['ANTERIOR', 'PREVIOUS'], ['URMĂTOR', 'NEXT'], ['DESCARCĂ', 'DOWNLOAD'],
   ['ALBUM DEMO', 'DEMO ALBUM'], ['DATE DEMO', 'DEMO DATA'], ['CREDIT FOTO', 'PHOTO CREDIT'],
-  ['IDENTITATE', 'IDENTITY'], ['POVESTEA NOASTRĂ', 'OUR STORY'], ['CONSTRUITĂ ÎN BUCOVINA.', 'BUILT IN BUCOVINA.'],
-  ['CE JUCĂM', 'WHAT WE PLAY'], ['TACTICĂ CU SCOP.', 'TACTICS WITH PURPOSE.'], ['EMBLEMA NOASTRĂ', 'OUR PATCH'],
-  ['TEREN PROPRIU', 'HOME FIELD'], ['TERENUL PE CARE ÎL CUNOAȘTEM.', 'THE GROUND WE KNOW.'], ['HARTĂ INDISPONIBILĂ', 'MAP UNAVAILABLE'],
-  ['TERENUL PE CARE', 'THE GROUND'], ['ÎL CUNOAȘTEM.', 'WE KNOW.'],
+  ['IDENTITATE', 'IDENTITY'], ['POVESTEA NOASTRĂ', 'OUR STORY'], ['FORMAȚI ÎN BUCOVINA.', 'BUILT IN BUCOVINA.'],
+  ['O ECHIPĂ UNITĂ PRIN ÎNCREDERE, DISCIPLINĂ ȘI EXPERIENȚA DIN TEREN.', 'A TEAM BUILT AROUND TRUST, DISCIPLINE AND THE FIELD.'],
+  ['CE JUCĂM', 'WHAT WE PLAY'], ['OBIECTIV CLAR.', 'TACTICS WITH PURPOSE.'], ['EMBLEMA NOASTRĂ', 'OUR PATCH'],
+  ['TEREN PROPRIU', 'HOME FIELD'], ['TERENUL NOSTRU.', 'THE GROUND WE KNOW.'], ['HARTĂ INDISPONIBILĂ', 'MAP UNAVAILABLE'],
+  ['TERENUL', 'THE GROUND'], ['NOSTRU.', 'WE KNOW.'],
   ['STABILEȘTE CONTACTUL', 'ESTABLISH CONTACT'], ['JOACĂ ALĂTURI DE NOI. INVITĂ ECHIPA. ÎNCEPE O CONVERSAȚIE.', 'PLAY WITH US. INVITE THE TEAM. START A CONVERSATION.'],
   ['CANAL DE CONTACT', 'CONTACT CHANNEL'], ['HAI SĂ VORBIM.', "LET'S TALK."],
-  ['Folosește formularul. Adresa de contact și linkurile sociale se configurează din admin.', 'Use the form. The contact address and social links are configured in admin.'],
+  ['Folosește formularul. Adresa de contact și canalele sociale se configurează din admin.', 'Use the form. The contact address and social channels are configured in admin.'],
   ['CONECTAT LA SUPABASE', 'SUPABASE CONNECTED'], ['SUBIECT', 'SUBJECT'], ['MESAJ', 'MESSAGE'], ['TRIMITE MESAJUL', 'SEND MESSAGE'],
   ['SE TRANSMITE...', 'TRANSMITTING...'], ['MESAJ PRIMIT', 'MESSAGE RECEIVED'], ['EROARE DE COMUNICARE // ÎNCEARCĂ DIN NOU', 'COMMUNICATION FAILURE // TRY AGAIN'],
   ['ALĂTURĂ-TE ECHIPEI', 'JOIN THE UNIT'], ['CREZI CĂ LOCUL TĂU ESTE AICI?', 'THINK YOU BELONG HERE?'], ['CERINȚE // DEMO', 'REQUIREMENTS // DEMO'],
@@ -67,6 +68,7 @@ const phrases: [string, string][] = [
   ['SISTEM ÎN AȘTEPTARE', 'SYSTEM STANDBY'], ['SITE TEMPORAR OFFLINE', 'SITE TEMPORARILY OFFLINE'],
   ['Revenim în curând. Airsoft Armer Team pregătește următoarea misiune.', 'We will be back soon. Airsoft Armer Team is preparing the next mission.'],
   ['REȚEA DE COMANDĂ', 'COMMAND NETWORK'], ['RESTRICȚIONAT', 'RESTRICTED'], ['PROTOCOL DE MENTENANȚĂ', 'MAINTENANCE PROTOCOL'],
+  ['STARE SISTEM', 'SYSTEM STATUS'],
   ['ACCES PUBLIC SUSPENDAT', 'PUBLIC ACCESS SUSPENDED'], ['LEGĂTURĂ // ÎN AȘTEPTARE', 'LINK // STANDBY'],
   ['LOCALIZARE', 'LOCATING'], ['ȚINTĂ IDENTIFICATĂ / UNITATE LOCALIZATĂ', 'TARGET ACQUIRED / UNIT LOCATED'], ['SARI PESTE INTRO', 'SKIP INTRO'],
   ['SISTEM GEOLOCALIZARE', 'GEOLOCATION SYSTEM'], ['INFORMAȚII GEO // ACTIVE', 'GEOINT // ACTIVE'],
@@ -76,10 +78,10 @@ const phrases: [string, string][] = [
   ['Scenarii, jocuri de echipă și experiențe construite în jurul comunicării, responsabilității și fair play-ului.', 'Scenarios, team games and experiences built around communication, responsibility and fair play.'],
   ['Principiile care ne țin împreună, pe teren și în afara lui.', 'The principles that keep us together, on and off the field.'],
   ['Airsoft Armer Team este o echipă sportivă/recreațională de airsoft și nu reprezintă o unitate militară sau instituție publică.', 'Airsoft Armer Team is a recreational airsoft team and does not represent a military unit or public institution.'],
-  ['LINKURI SOCIALE // CONFIGUREAZĂ ÎN ADMIN', 'SOCIAL LINKS // CONFIGURE IN ADMIN'], ['TOATE DREPTURILE REZERVATE', 'ALL RIGHTS RESERVED'],
-  ['FOTOGRAFIE DEMONSTRATIVĂ // ÎNLOCUIEȘTE DIN ADMIN', 'DEMO PHOTOGRAPHY // REPLACE IN ADMIN'],
-  ['DEMO / CALCULAT', 'DEMO / CALCULATED'], ['SISTEM CREAT DE BLACKICE', 'SYSTEM BY BLACKICE'],
-  ['Copertă album', 'Album cover'], ['Copertă', 'Cover'], ['Portret', 'Portrait'], ['Imagine demonstrativă', 'Demo image'],
+  ['CANALE SOCIALE // CONFIGURABILE DIN ADMIN', 'SOCIAL LINKS // CONFIGURE IN ADMIN'], ['TOATE DREPTURILE REZERVATE', 'ALL RIGHTS RESERVED'],
+  ['MISIUNE', 'MISSION'], ['MIȘCARE', 'MOVEMENT'], ['COORDONARE', 'COORDINATION'], ['EXECUȚIE', 'EXECUTION'],
+  ['SISTEM CREAT DE BLACKICE', 'SYSTEM BY BLACKICE'],
+  ['Copertă album', 'Album cover'], ['Copertă', 'Cover'], ['Portret', 'Portrait'],
   ['Selectează limba', 'Select language'],
   ['Ianuarie', 'January'], ['Februarie', 'February'], ['Martie', 'March'], ['Aprilie', 'April'], ['Mai', 'May'], ['Iunie', 'June'],
   ['Iulie', 'July'], ['August', 'August'], ['Septembrie', 'September'], ['Octombrie', 'October'], ['Noiembrie', 'November'], ['Decembrie', 'December'],
@@ -95,8 +97,25 @@ function translated(value: string, locale: Locale) {
   const direct = locale === 'en' ? roToEn.get(clean.toLocaleUpperCase('ro')) : enToRo.get(clean.toUpperCase());
   if (direct) return value.replace(clean, direct);
   let result = clean;
-  const replacements = locale === 'en' ? phrases : phrases.map(([ro, en]) => [en, ro] as [string, string]);
-  for (const [from, to] of replacements) result = result.replace(new RegExp(from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), to);
+  if (locale === 'ro') {
+    result = result
+      .replace(/^AAT \/\/ ALL RIGHTS RESERVED$/i, 'AAT // TOATE DREPTURILE REZERVATE')
+      .replace(/^AAT \/\/ (\d+) — VALUES$/i, 'AAT // $1 — VALORI')
+      .replace(/^AAT \/\/ (\d+) — OPERATIONS$/i, 'AAT // $1 — OPERAȚIUNI')
+      .replace(/^AAT \/\/ (\d+) — FIELD ARCHIVE$/i, 'AAT // $1 — ARHIVĂ DE TEREN')
+      .replace(/^HOME \/\//i, 'ACASĂ //')
+      .replace(/^OPERATION \/\//i, 'OPERAȚIUNE //')
+      .replace(/Uneori agresiv\./gi, 'Uneori ofensiv.')
+      .replace(/MISSION \/\/ MOVEMENT \/\/ COORDINATION \/\/ EXECUTION/gi, 'MISIUNE // MIȘCARE // COORDONARE // EXECUȚIE');
+  } else {
+    result = result
+      .replace(/^AAT \/\/ TOATE DREPTURILE REZERVATE$/i, 'AAT // ALL RIGHTS RESERVED')
+      .replace(/^AAT \/\/ (\d+) — VALORI$/i, 'AAT // $1 — VALUES')
+      .replace(/^AAT \/\/ (\d+) — OPERAȚIUNI$/i, 'AAT // $1 — OPERATIONS')
+      .replace(/^AAT \/\/ (\d+) — ARHIVĂ DE TEREN$/i, 'AAT // $1 — FIELD ARCHIVE')
+      .replace(/^ACASĂ \/\//i, 'HOME //')
+      .replace(/^OPERAȚIUNE \/\//i, 'OPERATION //');
+  }
   result = result
     .replace(/(\d+) OPERATORI DESFĂȘURAȚI/gi, '$1 DEPLOYED OPERATORS')
     .replace(/(\d+) DEPLOYED OPERATORS/gi, locale === 'ro' ? '$1 OPERATORI DESFĂȘURAȚI' : '$1 DEPLOYED OPERATORS')

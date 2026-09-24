@@ -58,7 +58,7 @@ export default async function MemberPage({
         />
         <div className="dossier-shade" />
         <div className="shell dossier-head">
-          <p>OPERATOR DOSSIER // {m.isDemo ? 'DEMO RECORD' : 'AAT'}</p>
+          <p>OPERATOR DOSSIER // AAT</p>
           <h1>{m.callsign}</h1>
         </div>
       </section>

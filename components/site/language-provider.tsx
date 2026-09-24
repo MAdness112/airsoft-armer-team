@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export type Locale = 'ro' | 'en';
 type LanguageContextValue = { locale: Locale; setLocale: (locale: Locale) => void };
@@ -128,6 +129,7 @@ function translateDocument(locale: Locale) {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [locale, updateLocale] = useState<Locale>('ro');
   useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get('lang');
@@ -137,11 +139,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     updateLocale(initial);
   }, []);
   useEffect(() => {
-    translateDocument(locale);
-    const observer = new MutationObserver(() => translateDocument(locale));
-    observer.observe(document.body, { childList: true, subtree: true, characterData: true });
-    return () => observer.disconnect();
-  }, [locale]);
+    const frame = requestAnimationFrame(() => translateDocument(locale));
+    return () => cancelAnimationFrame(frame);
+  }, [locale, pathname]);
   const value = useMemo(() => ({
     locale,
     setLocale(next: Locale) {

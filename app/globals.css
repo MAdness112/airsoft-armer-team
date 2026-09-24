@@ -42,7 +42,8 @@ button {
   inset: 0 0 auto;
   z-index: 50;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto auto auto;
+  column-gap: 22px;
   align-items: center;
   padding: 0 max(32px, calc((100vw - 1320px) /2));
   border-bottom: 1px solid transparent;
@@ -610,7 +611,8 @@ button {
   .navbar {
     height: 72px;
     padding: 0 18px;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
+    column-gap: 12px;
   }
   .navbar nav,
   .nav-status {
@@ -2947,3 +2949,9 @@ button {
 .geo-intro .maplibregl-ctrl-attrib {
   filter: invert(1) hue-rotate(180deg);
 }
+.language-toggle { display: inline-flex; align-items: center; gap: 5px; color: rgba(255,255,255,.38); font: 700 9px/1 monospace; letter-spacing: .12em; }
+.language-toggle button { padding: 5px 3px; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.language-toggle button.active { color: #fff; text-shadow: 0 0 12px rgba(255,255,255,.35); }
+.navbar > .language-toggle { justify-self: end; }
+.mobile-menu .language-toggle { margin: 8px 0 18px; }
+.offline-page > .language-toggle { position: absolute; z-index: 5; top: 5vh; right: 4vw; }

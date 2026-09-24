@@ -1,8 +1,10 @@
 import type { SiteSettings } from '@/lib/types';
+import { LanguageToggle } from './language-provider';
 
 export function OfflinePage({ settings }: { settings: SiteSettings }) {
   return (
     <main className="offline-page">
+      <LanguageToggle />
       <div className="offline-grid" aria-hidden="true" />
       <div className="offline-scan" aria-hidden="true" />
       <div className="offline-coordinates" aria-hidden="true">
